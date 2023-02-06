@@ -8,3 +8,11 @@
 ## 3. Function - WinMain
 	hInstance - 어플리케이션의 가장 최근의 인스턴스에 대한 핸들
 	hPrevInstance - 가장 이전에 사용했던 인스턴스에 대한 핸들 -> NULL
+
+## 4. Game Loop
+	( Render ) ->Process Input -> Update Game -> Render -> ( Process Input )
+
+	Win 32
+					-> Get some information on windows...							DefWindowProc
+	App
+		GetMessage() ->						TranslateMsg() -> DispatchMessage() -> WndProc
