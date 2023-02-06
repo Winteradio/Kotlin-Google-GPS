@@ -1,0 +1,10 @@
+## 1. Windows
+	-> Class ( not in C++ )
+	-> Instance
+
+## 2. messages 
+	-> Communication for windows and system
+
+## 3. Function - WinMain
+	hInstance - 어플리케이션의 가장 최근의 인스턴스에 대한 핸들
+	hPrevInstance - 가장 이전에 사용했던 인스턴스에 대한 핸들 -> NULL
