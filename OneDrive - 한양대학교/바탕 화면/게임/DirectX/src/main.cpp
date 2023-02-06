@@ -1,5 +1,5 @@
 #include <windows.h>
-#include <stdio.h>
+#include "Log.h"
 
 LRESULT CALLBACK WndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 {
@@ -8,6 +8,24 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 		case WM_CLOSE :
 		{
 			PostQuitMessage( 69 );
+			break;
+		}
+
+		case WM_KEYDOWN :
+		{
+			if ( wParam == 'F' )
+			{
+				SetWindowText( hWnd, "Respects");
+			}
+			break;
+		}
+
+		case WM_KEYUP :
+		{
+			if ( wParam == 'F' )
+			{
+				SetWindowText( hWnd, "Dangerfiled" );
+			}
 			break;
 		}
 	}

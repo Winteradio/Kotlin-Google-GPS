@@ -31,6 +31,7 @@ MESSAGE( STATUS "Setting for Source Files" )
 
 SET( SRC_DIR ${CMAKE_SOURCE_DIR}/src )
 SET( IMGUI_DIR ${CMAKE_SOURCE_DIR}/imgui )
+SET( LOG_DIR ${SRC_DIR}/LOG )
 
 ###################################################
 ### If you make new Source or Header file, ########
@@ -42,6 +43,8 @@ SET( IMGUI_DIR ${CMAKE_SOURCE_DIR}/imgui )
 ## Source Files
 SET( SRCS
 	${SRC_DIR}/main.cpp
+
+	${LOG_DIR}/Log.h ${LOG_DIR}/Log.cpp
 	)
 
 SET( IMGUI
@@ -65,7 +68,7 @@ MESSAGE( STATUS "Setting for Header Files" )
 SET( INCS
 	${IMGUI_DIR}
 
-	${SUB_DIR}
+	${LOG_DIR}
 	)
 MESSAGE( STATUS "Done" )
 ## ----- Header Files

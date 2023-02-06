@@ -16,3 +16,6 @@
 					-> Get some information on windows...							DefWindowProc
 	App
 		GetMessage() ->						TranslateMsg() -> DispatchMessage() -> WndProc
+
+## 5. Message
+
