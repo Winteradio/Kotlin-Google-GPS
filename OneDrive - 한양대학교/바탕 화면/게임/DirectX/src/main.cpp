@@ -1,5 +1,7 @@
 #include <windows.h>
+#include <string>
 #include "Log.h"
+#include <sstream>
 
 LRESULT CALLBACK WndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 {
@@ -13,7 +15,7 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 
 		case WM_KEYDOWN :
 		{
-			if ( wParam == 'F' )
+			if ( wParam == 'D' )
 			{
 				SetWindowText( hWnd, "Respects");
 			}
@@ -27,6 +29,22 @@ LRESULT CALLBACK WndProc( HWND hWnd, UINT msg, WPARAM wParam, LPARAM lParam )
 				SetWindowText( hWnd, "Dangerfiled" );
 			}
 			break;
+		}
+
+		case WM_CHAR :
+		{
+			static std::string title;
+			title.push_back( (char)wParam );
+			SetWindowText( hWnd, title.c_str() );
+			break;
+		}
+
+		case WM_LBUTTONDOWN :
+		{
+			POINTS pt = MAKEPOINTS( lParam );
+			std::ostringstream oss;
+			oss << "(" << pt.x << " , " << pt.y << ")";
+			SetWindowText( hWnd, oss.str().c_str() );
 		}
 	}
 	return DefWindowProc( hWnd, msg, wParam, lParam );
@@ -57,12 +75,17 @@ int CALLBACK WinMain(
 
 	RegisterClassEx( &wc );
 
+	RECT clientSize = { 0, 0, 640, 480 };
+	AdjustWindowRect( &clientSize, WS_OVERLAPPEDWINDOW, FALSE );
+
 	// Create Window Instance
 	HWND hWnd = CreateWindowEx(
 		0, pClassName,
 		"Happy Hard Window",
 		WS_CAPTION | WS_MINIMIZEBOX | WS_SYSMENU,
-		200, 200, 640, 480,
+		200, 200,
+		clientSize.right - clientSize.left,
+		clientSize.bottom - clientSize.top,
 		nullptr, nullptr, hInstance, nullptr
 		);
 

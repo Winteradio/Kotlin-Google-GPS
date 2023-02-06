@@ -1,6 +1,10 @@
 #ifndef __SUBLOG_H__
 #define __SUBLOG_H__
 
+// Setting for see console Debug Log Message
+#pragma comment(linker, "/entry:WinMainCRTStartup")
+#pragma comment(linker, "/subsystem:console")
+
 #include <stdio.h>
 #include <string.h>
 #include <stdarg.h>
