@@ -1,0 +1,6 @@
+[submodule "yaml-example"]
+	path = yaml-example
+	url = https://github.com/jbeder/yaml-cpp
+[submodule "example/yaml-cpp"]
+	path = example/yaml-cpp
+	url = https://github.com/jbeder/yaml-cpp
