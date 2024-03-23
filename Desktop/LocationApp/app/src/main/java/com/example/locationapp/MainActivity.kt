@@ -21,6 +21,8 @@ import com.google.android.gms.location.LocationServices
 import android.os.Handler
 import android.os.Looper
 
+import LocationTracker
+
 class MainActivity : ComponentActivity() {
 
     lateinit var fusedLocationProviderClient: FusedLocationProviderClient
